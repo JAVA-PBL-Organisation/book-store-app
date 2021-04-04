@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${book.title}"></title>
+  </head>
+  <body>
+    <h1>Book Store</h1>
+    <div>
+      <h2>Book Name - <span th:text="${book.title}"></span></h2>
+      <h2>Book Author - <span th:text="${book.author}"></span></h2>
+      <button><a th:href="@{/books/edit/{id}(id=${book.id})}">Edit</a></button>
+      <br />
+      <form
+        action="#"
+        th:action="@{/book/{id}(id=${book.id})}"
+        th:method="delete"
+      >
+        <input type="submit" value="Delete Book" />
+      </form>
+    </div>
+    <button><a th:href="@{/books}">All Books</a></button>
+  </body>
+</html>
